@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>react学习-webpack搭建（二） | 蒋兄的博客 | 白日梦想家</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="react webpack">
+    <meta name="description" content="嗯，准备开始系统学习一下react了。">
+<meta name="keywords" content="react webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react学习-webpack搭建（二）">
+<meta property="og:url" content="https://jiangchengzzz.github.io/20180705/react-learn-2/index.html">
+<meta property="og:site_name" content="蒋兄的博客">
+<meta property="og:description" content="嗯，准备开始系统学习一下react了。">
+<meta property="og:locale" content="zh-hans">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/1.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/2.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/3.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/4.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/7.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/6.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/5.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/8.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/9.png">
+<meta property="og:updated_time" content="2018-07-05T09:30:49.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react学习-webpack搭建（二）">
+<meta name="twitter:description" content="嗯，准备开始系统学习一下react了。">
+<meta name="twitter:image" content="https://jiangchengzzz.github.io/20180705/react-learn-2/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="蒋兄的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">蒋承志</h5>
+          <a href="mailto:1372857406@qq.com" title="1372857406@qq.com" class="mail">1372857406@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiangchengzzz" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">react学习-webpack搭建（二）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">react学习-webpack搭建（二）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-05T02:28:27.000Z" itemprop="datePublished" class="page-time">
+  2018-07-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/react/">react</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置升级篇"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置升级篇</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#嗯，现在是各种文件的支持。"><span class="post-toc-number">2.</span> <span class="post-toc-text">嗯，现在是各种文件的支持。</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-react-learn-2"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">react学习-webpack搭建（二）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-05 10:28:27" datetime="2018-07-05T02:28:27.000Z"  itemprop="datePublished">2018-07-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/react/">react</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="配置升级篇"><a href="#配置升级篇" class="headerlink" title="配置升级篇"></a>配置升级篇</h4><ul>
+<li><p><strong>引入自动生成html的插件</strong>：</p>
+<ol>
+<li><p>安装</p>
+<blockquote>
+<p>npm install html-webpack-plugin –save-dev</p>
+</blockquote>
+</li>
+<li><p>配置webpack.config.js,引入模块，并在module.exports 设置plugins对象值<br><img src="/20180705/react-learn-2/./1.png" alt=""><br><br><br></p>
+</li>
+</ol>
+</li>
+<li><p><strong>webpack引入node.js的express服务器来支持热更新。</strong></p>
+<ol>
+<li>安装<blockquote>
+<p>npm install webpack-dev-server –save-dev </p>
+</blockquote>
+</li>
+<li><p>可以直接在webpack.config里面配置,首先要在package.json内配置</p>
+<blockquote>
+<p>“scripts”:{</p>
+<pre><code>&quot;start&quot;:&quot;webpack-dev-server --inline --hot&quot; 
+</code></pre><p> }<br> // 嗯，就是脚手架那种npm start启动</p>
+</blockquote>
+<p> 然后webpack.config.js 里面的配置：<br> <img src="/20180705/react-learn-2/./2.png" alt=""> </p>
+</li>
+<li><p>新建一个webpack.server.js,package.json内配置,指定对应文件</p>
+<blockquote>
+<p>“scripts”: {<br>   “start”:”node server.js”<br> },</p>
+</blockquote>
+<p> 然后webpack.server.js 里面的配置：<br> <img src="/20180705/react-learn-2/./3.png" alt=""></p>
+</li>
+</ol>
+</li>
+</ul>
+<p><br><br></p>
+<h4 id="嗯，现在是各种文件的支持。"><a href="#嗯，现在是各种文件的支持。" class="headerlink" title="嗯，现在是各种文件的支持。"></a>嗯，现在是各种文件的支持。</h4><ul>
+<li><p><strong>webpack是基于nodeJS平台，完全支持JS文件不支持css。所以要把css转成JS文件。webpack提供了一个两个模块来支持css文件转编译。</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">style-loader:将css内容插入到html的style </span><br><span class="line">css-loader:处理css里面的@import 和url() 的内容，需要url-loader 和file-loader的支撑 </span><br><span class="line">file-loader: 用MD5 hash加密文件名后返回相应的路径 </span><br><span class="line">url-loader 在file-loader 基础上加了额外的功能。当链接的文件小于limit 8192时，可以直接返回DataURL。DataURL是图片格式转换成base64编码的字符串，并存储在URL中。这样可以减少客户端的请求次数</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装<blockquote>
+<p>npm install css-loader style-loader –save-dev<br> npm install url-loader file-loader –save-dev</p>
+</blockquote>
+</li>
+<li>修改webpack.config.js 的配置<br><img src="/20180705/react-learn-2/./4.png" alt=""></li>
+<li>肯定实在src下面创建各种文件夹和文件了，以及app.js导入文件了，以下是我的：（包括后面用的sass和less，这边不需要）,嗯，还有里面随便写的样式。<br>app.js 目录<br><img src="/20180705/react-learn-2/./7.png" alt=""><br>css，scss，less。<br><img src="/20180705/react-learn-2/./6.png" alt=""></li>
+<li>然后就是npm start了，去浏览器进你配的localhost:XXXX；</li>
+</ol>
+</li>
+<li><p><strong>现在到了打包剥离css文件环节，css文件和html混合，这不符合html的优化思路。    所以要求webpack生成的最终文件css也是单独一个文件。这里webpack提供了        extract-text-webpack-plugin插件</strong></p>
+<ol>
+<li>安装<blockquote>
+<p>npm install extract-text-webpack-plugin –save-dev</p>
+</blockquote>
+</li>
+<li>修改webpack.config.js<br><img src="/20180705/react-learn-2/./5.png" alt=""><br>还有webpack.config.js顶部引入的文件，截图截不下额。<blockquote>
+<p>const ExtractTextPlugin = require(‘extract-text-webpack-plugin’)</p>
+</blockquote>
+</li>
+<li>停掉服务器，然后webpack打包就可以看到build文件夹里有style.css了。<br><br><br></li>
+</ol>
+</li>
+<li><strong>是不是很开心!因为报错了，如果你的webpack版本是4.0以上</strong><blockquote>
+<p>Chunk.entrypoints: Use Chunks.groupsIterable and filter by instanceof Entrypoint instead<br>  extract-text-webpack-plugin还不能支持webpack4.0.0以上的版本<br>  This is <a href="https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/701" target="_blank" rel="noopener">官方给的说法</a><br>  <strong>解决方法</strong><br>npm install –save-dev extract-text-webpack-plugin@next<br>  会下载到<a href="mailto:extract-text-webpack-plugin@4.0.0-beta.0" target="_blank" rel="noopener">extract-text-webpack-plugin@4.0.0-beta.0</a> </p>
+<ol>
+<li>但是不知道为什么我下下来了也可以用，但是没有显示在package。</li>
+<li>自己折腾时候还遇到了Cannot find module ‘import-local’这种错，然后在这个文件夹下webpack -v 都会报这个错，实在没办法最后只能删除这个node_modules然后删除package.json中所有关于webpack的，然后重新安装。。。。然后就好了，尴尬。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p><br><br></p>
+<ul>
+<li><strong>现在就是在项目中用sass和less</strong><ol>
+<li>嗯，要安装的东西<blockquote>
+<p>npm install sass-loader node-sass webpack –save-dev<br>npm install less-loader less –save-dev<br>npm i -D postcss-loader</p>
+</blockquote>
+</li>
+<li>在根目录上创建postcss.config.js（webpack 会自动找到这个文件):里面写<blockquote>
+<p>module.exports = {<br>plugins:{<br>‘autoprefixer’: {},<br>}</p>
+</blockquote>
+</li>
+<li>webpack.config.js 里面配置:<br><img src="/20180705/react-learn-2/./8.png" alt=""></li>
+<li>搞定了嗯，是的有点丑。<br><img src="/20180705/react-learn-2/./9.png" alt=""><br>}    </li>
+</ol>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-07-05T09:30:49.214Z" itemprop="dateUpdated">2018-07-05 17:30:49</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/20180705/react-learn-2/" target="_blank" rel="external">https://jiangchengzzz.github.io/20180705/react-learn-2/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiangchengzzz.github.io">
+            <img src="/img/touxiang.jpg" alt="蒋承志">
+            蒋承志
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-webpack/">react webpack</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180705/react-learn-2/&title=《react学习-webpack搭建（二）》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180705/react-learn-2/&title=《react学习-webpack搭建（二）》 — 蒋兄的博客&source=前端" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180705/react-learn-2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《react学习-webpack搭建（二）》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180705/react-learn-2/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180705/react-learn-2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20180704/react-learn-1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">react学习-webpack搭建（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>蒋承志 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180705/react-learn-2/&title=《react学习-webpack搭建（二）》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180705/react-learn-2/&title=《react学习-webpack搭建（二）》 — 蒋兄的博客&source=前端" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180705/react-learn-2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《react学习-webpack搭建（二）》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180705/react-learn-2/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180705/react-learn-2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://jiangchengzzz.github.io/20180705/react-learn-2/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'false';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'false';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
