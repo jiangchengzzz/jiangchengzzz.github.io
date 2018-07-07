@@ -14,27 +14,29 @@
     
     
     
-    <title>react学习-webpack搭建（一） | 蒋兄的博客 | 白日梦想家</title>
+    <title>vue路由跳转用router-link的好处 | 蒋兄的博客 | 白日梦想家</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="react webpack">
-    <meta name="description" content="嗯，准备开始系统学习一下react了。">
-<meta name="keywords" content="react webpack">
+    <meta name="keywords" content="vue-router vue">
+    <meta name="description" content="由工作中遇到的问题，讨论router-link的益处。">
+<meta name="keywords" content="vue-router vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react学习-webpack搭建（一）">
-<meta property="og:url" content="https://jiangchengzzz.github.io/20180704/react-learn-1/index.html">
+<meta property="og:title" content="vue路由跳转用router-link的好处">
+<meta property="og:url" content="https://jiangchengzzz.github.io/20180707/router-link/index.html">
 <meta property="og:site_name" content="蒋兄的博客">
-<meta property="og:description" content="嗯，准备开始系统学习一下react了。">
+<meta property="og:description" content="由工作中遇到的问题，讨论router-link的益处。">
 <meta property="og:locale" content="zh-hans">
-<meta property="og:image" content="https://jiangchengzzz.github.io/20180704/react-learn-1/1.png">
-<meta property="og:updated_time" content="2018-07-05T02:29:30.843Z">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/router-link/3.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/router-link/2.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/router-link/1.png">
+<meta property="og:updated_time" content="2018-07-07T07:01:22.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react学习-webpack搭建（一）">
-<meta name="twitter:description" content="嗯，准备开始系统学习一下react了。">
-<meta name="twitter:image" content="https://jiangchengzzz.github.io/20180704/react-learn-1/1.png">
+<meta name="twitter:title" content="vue路由跳转用router-link的好处">
+<meta name="twitter:description" content="由工作中遇到的问题，讨论router-link的益处。">
+<meta name="twitter:image" content="https://jiangchengzzz.github.io/20180707/router-link/3.png">
     
         <link rel="alternate" type="application/atom+xml" title="蒋兄的博客" href="/atom.xml">
     
@@ -115,7 +117,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">react学习-webpack搭建（一）</div>
+        <div class="flex-col header-title ellipsis">vue路由跳转用router-link的好处</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -137,15 +139,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">react学习-webpack搭建（一）</h1>
+        <h1 class="title">vue路由跳转用router-link的好处</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-07-04T06:19:44.000Z" itemprop="datePublished" class="page-time">
-  2018-07-04
+                <time datetime="2018-07-07T06:11:46.000Z" itemprop="datePublished" class="page-time">
+  2018-07-07
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/react/">react</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/vue/">vue</a></li></ul>
 
             
         </h5>
@@ -162,21 +164,21 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#初衷"><span class="post-toc-number">1.</span> <span class="post-toc-text">初衷</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#具体情况"><span class="post-toc-number">1.</span> <span class="post-toc-text">具体情况</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#出现的问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">出现的问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决的问题，以及好处"><span class="post-toc-number">3.</span> <span class="post-toc-text">解决的问题，以及好处</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-react-learn-1"
+<article id="post-router-link"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">react学习-webpack搭建（一）</h1>
+        <h1 class="post-card-title">vue路由跳转用router-link的好处</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-07-04 14:19:44" datetime="2018-07-04T06:19:44.000Z"  itemprop="datePublished">2018-07-04</time>
+            <time class="post-time" title="2018-07-07 14:11:46" datetime="2018-07-07T06:11:46.000Z"  itemprop="datePublished">2018-07-07</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/react/">react</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/vue/">vue</a></li></ul>
 
 
 
@@ -188,33 +190,27 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h4><p>　　嗯，最近工作内容比较少，是时候补充下自己了，纠结了一天该学什么，      　　react、node、nginx、typescript，竟然有这么多。<br>　　反正都有这么多，就先从react开始吧！</p>
-<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>我选择的是用webpack进行搭建环境，然后发现自己搭建webpack基本忘完。<br>嗯所以第一篇就重新学一遍<strong>webpack搭建</strong>。</p>
-<ul>
-<li><p><strong>webpack搭建初级</strong>：</p>
+            <h4 id="具体情况"><a href="#具体情况" class="headerlink" title="具体情况"></a>具体情况</h4><p>  在用vue的时候写了个头部组件，<br>  在index.vue中引入，<br>  需要对不同角色做权限控制，<br>  直接写点击事件来进行跳转，条件判断类名的形式。显示状态</p>
+<h4 id="出现的问题"><a href="#出现的问题" class="headerlink" title="出现的问题"></a>出现的问题</h4><p>  浏览器刷新时候，选中状态不显示，<br>  <strong>想了有几种方案：</strong></p>
 <ol>
-<li><p>首先肯定是全局安装webpack</p>
-<blockquote>
-<p>npm install webpack -g</p>
-</blockquote>
-</li>
-<li><p>然后就是建项目文件夹，打开命令行（目录下shift+右键）或者gitbash。</p>
-<blockquote>
-<p>npm init</p>
-</blockquote>
-</li>
-<li><p>再后那就是在这个根目录下创建个webpack.config.js文件以及基本项目目录,下面是我的目录以及配置信息。<br><img src="/20180704/react-learn-1/./1.png" alt=""><br><br><br></p>
-</li>
-<li>src文件夹下面建app.js,随便写点什么例如：alert(‘你好萌啊’);，src下再创建一个index.html引入bundle.js文件。（还未生成，后面会生成只是先写 </li>
-<li><p>安装本地webpack包</p>
-<blockquote>
-<p>npm install webpack –save-dev<br>//功后显示<br>Hash: bba9fbe70c8f6bbe2cd1<br>Version: webpack 3.3.0<br>Time: 47ms<br> Asset     Size  Chunks             Chunk Names<br>bundle.js  2.58 kB       0  [emitted]  main<br>[0] ./src/app.js 111 bytes {0} [built]</p>
-</blockquote>
-</li>
-<li><p>访问index.html 就能看到app.js里面写的东西了。</p>
+<li>用vuex去存当前跳转的路由，通过在组件循环获取</li>
+<li><p>同上用stroage去存</p>
+<p>但是感觉都太繁琐，后来发现如果路由跳转用router-link，vue-router会帮你把路由与router-link绑定，<br>你只需要去设置当路由adtive时候所需要增加的class就好<br>还可以吧router-link指定为其他标签<br>例如：<br><img src="/20180707/router-link/./3.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/20180707/router-link/./2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>文档：<br><img src="/20180707/router-link/./1.png" alt=""><br>详情请看<a href="https://router.vuejs.org/zh/api/#linkactiveclass" target="_blank" rel="noopener">https://router.vuejs.org/zh/api/#linkactiveclass</a></p>
 </li>
 </ol>
-</li>
+<h4 id="解决的问题，以及好处"><a href="#解决的问题，以及好处" class="headerlink" title="解决的问题，以及好处"></a>解决的问题，以及好处</h4><p>  用了router-link标签后发现：</p>
+<ul>
+<li>不论是手输路由，还是刷新页面，路由选中状态都不会消失。</li>
+<li>简化了之前自己添加类名触发点击事件中的各种循环，以及自己添加的各种字段。</li>
+<li>感觉自己变帅了。</li>
 </ul>
 
         </div>
@@ -224,12 +220,12 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2018-07-05T02:29:30.843Z" itemprop="dateUpdated">2018-07-05 10:29:30</time>
+    最終更新：<time datetime="2018-07-07T07:01:22.382Z" itemprop="dateUpdated">2018-07-07 15:01:22</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/20180704/react-learn-1/" target="_blank" rel="external">https://jiangchengzzz.github.io/20180704/react-learn-1/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/20180707/router-link/" target="_blank" rel="external">https://jiangchengzzz.github.io/20180707/router-link/</a>
         
     </div>
     
@@ -246,7 +242,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-webpack/">react webpack</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-router-vue/">vue-router vue</a></li></ul>
 
 
             
@@ -256,7 +252,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180704/react-learn-1/&title=《react学习-webpack搭建（一）》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180707/router-link/&title=《vue路由跳转用router-link的好处》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -266,22 +262,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180704/react-learn-1/&title=《react学习-webpack搭建（一）》 — 蒋兄的博客&source=前端" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180707/router-link/&title=《vue路由跳转用router-link的好处》 — 蒋兄的博客&source=前端" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180704/react-learn-1/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180707/router-link/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《react学习-webpack搭建（一）》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180704/react-learn-1/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue路由跳转用router-link的好处》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180707/router-link/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180704/react-learn-1/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180707/router-link/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -301,21 +297,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/20180705/react-learn-2/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">react学习-webpack搭建（二）</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/20180703/hello-world/" id="post-next" class="post-nav-link">
+      <a href="/20180705/react-learn-2/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">react学习-webpack搭建（二）</h4>
       </a>
     </div>
   
@@ -395,7 +384,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180704/react-learn-1/&title=《react学习-webpack搭建（一）》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180707/router-link/&title=《vue路由跳转用router-link的好处》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -405,22 +394,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180704/react-learn-1/&title=《react学习-webpack搭建（一）》 — 蒋兄的博客&source=前端" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180707/router-link/&title=《vue路由跳转用router-link的好处》 — 蒋兄的博客&source=前端" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180704/react-learn-1/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180707/router-link/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《react学习-webpack搭建（一）》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180704/react-learn-1/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue路由跳转用router-link的好处》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180707/router-link/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180704/react-learn-1/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180707/router-link/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -431,7 +420,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://jiangchengzzz.github.io/20180704/react-learn-1/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://jiangchengzzz.github.io/20180707/router-link/" alt="微信分享二维码">
 </div>
 
 
