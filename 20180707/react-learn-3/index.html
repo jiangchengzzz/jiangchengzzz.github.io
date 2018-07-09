@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>react学习-webpack搭建（三） | 蒋兄的博客 | 白日梦想家</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="react,webpack">
+    <meta name="description" content="添加babelES6 转ES5模块 首先肯定是引入 npm install babel-loader babel-core babel-preset-env webpack –save-dev   如果要支持react，需要安装下面的模块： npm install babel-preset-es2015 babel-preset-react babel-preset-stage-3 –save-d">
+<meta name="keywords" content="react,webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react学习-webpack搭建（三）">
+<meta property="og:url" content="https://jiangchengzzz.github.io/20180707/react-learn-3/index.html">
+<meta property="og:site_name" content="蒋兄的博客">
+<meta property="og:description" content="添加babelES6 转ES5模块 首先肯定是引入 npm install babel-loader babel-core babel-preset-env webpack –save-dev   如果要支持react，需要安装下面的模块： npm install babel-preset-es2015 babel-preset-react babel-preset-stage-3 –save-d">
+<meta property="og:locale" content="zh-hans">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/react-learn-3/2.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/react-learn-3/4.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/react-learn-3/5.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/react-learn-3/3.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/react-learn-3/6.png">
+<meta property="og:image" content="https://jiangchengzzz.github.io/20180707/react-learn-3/7.png">
+<meta property="og:updated_time" content="2018-07-09T11:14:48.195Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react学习-webpack搭建（三）">
+<meta name="twitter:description" content="添加babelES6 转ES5模块 首先肯定是引入 npm install babel-loader babel-core babel-preset-env webpack –save-dev   如果要支持react，需要安装下面的模块： npm install babel-preset-es2015 babel-preset-react babel-preset-stage-3 –save-d">
+<meta name="twitter:image" content="https://jiangchengzzz.github.io/20180707/react-learn-3/2.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="蒋兄的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">蒋承志</h5>
+          <a href="mailto:1372857406@qq.com" title="1372857406@qq.com" class="mail">1372857406@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiangchengzzz" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">react学习-webpack搭建（三）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">react学习-webpack搭建（三）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-07T09:24:38.000Z" itemprop="datePublished" class="page-time">
+  2018-07-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/react/">react</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加babelES6-转ES5模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">添加babelES6 转ES5模块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加url和file模块"><span class="post-toc-number">2.</span> <span class="post-toc-text">添加url和file模块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#最基本的搭建已经完成了，下面是高级篇。"><span class="post-toc-number">3.</span> <span class="post-toc-text">最基本的搭建已经完成了，下面是高级篇。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#然后是加入react组件"><span class="post-toc-number">4.</span> <span class="post-toc-text">然后是加入react组件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#最后"><span class="post-toc-number">5.</span> <span class="post-toc-text">最后</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结："><span class="post-toc-number">6.</span> <span class="post-toc-text">总结：</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-react-learn-3"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">react学习-webpack搭建（三）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-07 17:24:38" datetime="2018-07-07T09:24:38.000Z"  itemprop="datePublished">2018-07-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/react/">react</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="添加babelES6-转ES5模块"><a href="#添加babelES6-转ES5模块" class="headerlink" title="添加babelES6 转ES5模块"></a>添加babelES6 转ES5模块</h4><ul>
+<li>首先肯定是引入<blockquote>
+<p>npm install babel-loader babel-core babel-preset-env webpack –save-dev</p>
+</blockquote>
+</li>
+<li>如果要支持react，需要安装下面的模块：<blockquote>
+<p>npm install babel-preset-es2015 babel-preset-react babel-preset-stage-3 –save-dev</p>
+</blockquote>
+</li>
+<li>webpack.config.js 的rule中添加代码：<blockquote>
+<p>{</p>
+<pre><code>test:/\.jsx$/,
+exclude:/(node_modules|bower_components)/,//排除XXX类型文件
+use:{
+    loader:&apos;babel-loader&apos;           
+}
+</code></pre><p>}</p>
+</blockquote>
+</li>
+<li>根目录下创建.babelrc文件添加如下代码：<blockquote>
+<p>{<br>  “presets”: [“es2015”,”react”]<br>}</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="添加url和file模块"><a href="#添加url和file模块" class="headerlink" title="添加url和file模块"></a>添加url和file模块</h4><ul>
+<li>引入<blockquote>
+<p>npm install url-loader file-loader –save-dev</p>
+</blockquote>
+</li>
+<li>webpack.config.js 的rule中添加<br><img src="/20180707/react-learn-3/./2.png" alt=""></li>
+</ul>
+<h4 id="最基本的搭建已经完成了，下面是高级篇。"><a href="#最基本的搭建已经完成了，下面是高级篇。" class="headerlink" title="最基本的搭建已经完成了，下面是高级篇。"></a>最基本的搭建已经完成了，下面是高级篇。</h4><ul>
+<li><p>webpack4.x移除了之前必要的UglifyjsWebpackPlugin压缩，所以现在不需要添加相关配置。<br>只需要在package.json中的script中添加：</p>
+<blockquote>
+<p>“build”: “webpack –mode development”<br>以后就可以用npm run build进行压缩了。</p>
+</blockquote>
+</li>
+<li><p>devtool webpack 提供的辅助工具，调试的时候能正确的显示源代码出错的行数。eval-soure-map用于开发模式下,<a href="https://github.com/webpack/docs/wiki/configuration#devtool" target="_blank" rel="noopener">其他模式</a></p>
+<blockquote>
+<p>devtool:’eval-soure-map’</p>
+</blockquote>
+</li>
+<li>happypack 让loader多进程去处理文件，加速webpack构建<blockquote>
+<p>npm install happypack –save-dev<br>在webpack.config.js三个部位中添加：<br><img src="/20180707/react-learn-3/./4.png" alt=""><br><img src="/20180707/react-learn-3/./5.png" alt=""><br><img src="/20180707/react-learn-3/./3.png" alt=""></p>
+</blockquote>
+</li>
+<li>eslint 普通规则可以，但是airbnb 我报错了后期补上。</li>
+<li>dll  不好意思，我报错了后期补上。</li>
+</ul>
+<h4 id="然后是加入react组件"><a href="#然后是加入react组件" class="headerlink" title="然后是加入react组件"></a>然后是加入react组件</h4><ul>
+<li>先用node.js安装react 和react-dom 模块:<blockquote>
+<p>npm install react react-dom –save<br>添加react代码：<br><img src="/20180707/react-learn-3/./6.png" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/20180707/react-learn-3/./7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>  其实很重要的eslint和dll没成功有点烦，特别是dll 不知道为什么试了那么多帖子上的方法都失败，<br>  嗯，下次有时间在来补；</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-07-09T11:14:48.195Z" itemprop="dateUpdated">2018-07-09 19:14:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/20180707/react-learn-3/" target="_blank" rel="external">https://jiangchengzzz.github.io/20180707/react-learn-3/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiangchengzzz.github.io">
+            <img src="/img/touxiang.jpg" alt="蒋承志">
+            蒋承志
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180707/react-learn-3/&title=《react学习-webpack搭建（三）》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180707/react-learn-3/&title=《react学习-webpack搭建（三）》 — 蒋兄的博客&source=前端" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180707/react-learn-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《react学习-webpack搭建（三）》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180707/react-learn-3/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180707/react-learn-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20180707/router-link/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vue路由跳转用router-link的好处</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>蒋承志 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180707/react-learn-3/&title=《react学习-webpack搭建（三）》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180707/react-learn-3/&title=《react学习-webpack搭建（三）》 — 蒋兄的博客&source=前端" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180707/react-learn-3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《react学习-webpack搭建（三）》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180707/react-learn-3/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180707/react-learn-3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://jiangchengzzz.github.io/20180707/react-learn-3/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'false';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'false';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
