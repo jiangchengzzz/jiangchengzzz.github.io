@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>linux常用命令 | 蒋兄的博客 | 白日梦想家</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="服务器,linux">
+    <meta name="description" content="初衷　　嗯，今天干了件坑爹的事情，给服务器清楚缓存时候，执行了rm -rf /    对，就是它，本来想着在当前目录下执行删除命令rm -rf ，谁知道咋就加了个/。嗯，后果就是删除了整个服务器根目录下的所有东西。    这也是由于对操作服务器命令理解不够清晰引起的，所以准备学习一波基本操作。 文件操作 cd 命令 进入指定目录或当前文件夹命令 cd 目录或者当前位置文件夹 ls 命令 查看指定目">
+<meta name="keywords" content="服务器,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用命令">
+<meta property="og:url" content="https://jiangchengzzz.github.io/20180724/操作服务器常用命令/index.html">
+<meta property="og:site_name" content="蒋兄的博客">
+<meta property="og:description" content="初衷　　嗯，今天干了件坑爹的事情，给服务器清楚缓存时候，执行了rm -rf /    对，就是它，本来想着在当前目录下执行删除命令rm -rf ，谁知道咋就加了个/。嗯，后果就是删除了整个服务器根目录下的所有东西。    这也是由于对操作服务器命令理解不够清晰引起的，所以准备学习一波基本操作。 文件操作 cd 命令 进入指定目录或当前文件夹命令 cd 目录或者当前位置文件夹 ls 命令 查看指定目">
+<meta property="og:locale" content="zh-hans">
+<meta property="og:updated_time" content="2018-07-24T07:12:34.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux常用命令">
+<meta name="twitter:description" content="初衷　　嗯，今天干了件坑爹的事情，给服务器清楚缓存时候，执行了rm -rf /    对，就是它，本来想着在当前目录下执行删除命令rm -rf ，谁知道咋就加了个/。嗯，后果就是删除了整个服务器根目录下的所有东西。    这也是由于对操作服务器命令理解不够清晰引起的，所以准备学习一波基本操作。 文件操作 cd 命令 进入指定目录或当前文件夹命令 cd 目录或者当前位置文件夹 ls 命令 查看指定目">
+    
+        <link rel="alternate" type="application/atom+xml" title="蒋兄的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/touxiang.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">蒋承志</h5>
+          <a href="mailto:1372857406@qq.com" title="1372857406@qq.com" class="mail">1372857406@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/jiangchengzzz" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">linux常用命令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">linux常用命令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-24T05:49:24.000Z" itemprop="datePublished" class="page-time">
+  2018-07-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/服务器/">服务器</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初衷"><span class="post-toc-number">1.</span> <span class="post-toc-text">初衷</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">文件操作</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-操作服务器常用命令"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">linux常用命令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-24 13:49:24" datetime="2018-07-24T05:49:24.000Z"  itemprop="datePublished">2018-07-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/服务器/">服务器</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h3><p>　　嗯，今天干了件坑爹的事情，给服务器清楚缓存时候，执行了rm -rf /<em><br>    对，就是它，本来想着在当前目录下执行删除命令rm -rf </em>，谁知道咋就加了个/。嗯，后果就是删除了整个服务器根目录下的所有东西。<br>    这也是由于对操作服务器命令理解不够清晰引起的，所以准备学习一波基本操作。</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><ol>
+<li>cd 命令 进入指定目录或当前文件夹命令<br> cd 目录或者当前位置文件夹</li>
+<li>ls 命令 查看指定目录或当前位置下有哪些文件和文件夹的命令<br> ls 选项 指定目录或当前位置<br> 选项一般就是-l，可查看每个文件或文件夹的详细信息，例如权限、用户、属组、大小、创建时间等。<br> 示例：<br>   （1）ls -l /home/weblogic : 查看/home/weblogic目录下每个文件或文件夹的详细信息。<br>   （2）ls -l : 查看当前位置下每个文件或文件夹的详细信息。</li>
+<li>查看当前路径<br> pwd</li>
+<li>mkdir 新建目录<br> mkdir 目录名</li>
+<li>touch命令 创建空文件命令，用于在指定目录或当前位置下创建一个空文件。<br> touch 指定目录或当前位置的文件 </li>
+<li>vi命令<br> vi命令是文件打开命令，用于创建或修改指定目录或当前位置下的文件。<br> vi 指定目录或当前位置的文件<br> 相关编辑操作：<br> （1）输入数据：打开文件后点击i键则可在光标显示后面输入数据。<br> （2）保存数据并关闭文件：点击esc键退出编辑状态，再点击:键加wq后回车。<br> （3）关闭文件：如果在编辑状态，则先点击esc键退出编辑状态，再点击:键加q!后回 车。 </li>
+<li>cp拷贝文件 此命令用来将一个或多个源文件或者目录复制到指定的目的文件或目录。      它可以将单个源文件复制成一个指定文件名的具体的文件或一个已经存在的目录下，      该命令还支持同时复制多个文件，当一次复制多个文件时，目标文件参数必须是一个      已经存在的目录，否则将出现错误<br> cp 选项 源文件或目录 目的文件或目录<br> 选项一般有：<br> -i : 覆盖既有文件之前先询问用户。<br> -R/r : 递归处理，将指定目录下的所有文件与子目录一并处理。<br> -b : 覆盖已存在的文件目标前将目标文件备份。<br> 选项一般有：<br> -i : 覆盖既有文件之前先询问用户。<br> -R/r : 递归处理，将指定目录下的所有文件与子目录一并处理。<br> -b : 覆盖已存在的文件目标前将目标文件备份。 </li>
+<li>删除文件<br> rm 参数 文件<br> 例：rm -rf /system/www/abc.html<br> 例 rm -rf /<em>（没错，是它，就是它）-r 表示递归 -f 表示强制删除 /</em> 表示根目录</li>
+<li><p>mv命令可以用来移动文件或者将文件改名，格式如下：<br> mv 选项 源文件或目录 目标文件或目录<br> 选项一般有：<br> -b ：若需覆盖文件，则覆盖前先行备份。<br> -f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖。<br> -i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖。<br> 示例：<br> （1）mv b1.txt b1.log : 将文件b1.txt重命名为b1.log。<br> （2）mv b1.log /home/test/b : 将b1.log文件移到目录b中。<br> （3）mv /home/test/a/*.txt /home/test/b : 将/home/test/a目录下所有txt文件移动到/home/test/b目录下。</p>
+</li>
+<li><p>删除一个目录rmdir dirname<br>移动或重命名一个目录 mvdir dir1 dir2</p>
+</li>
+<li><p>ps命令 此命令用于查看进程，格式如下：<br>ps 选项 过滤符 进程ID或名称<br>选项常用的是-ef : 查看当前所有进程，加上grep过滤符可进行筛选。<br>示例：<br>ps –ef|grep tomcat : 查看有关tomcat的进程，获得该进程信息。</p>
+</li>
+<li>tar命令可以用来压缩文件与解压缩文件包，格式如下：<br>tar 选项 压缩包名称 压缩文件或解压缩路径<br>选项一般有：<br>-c ：建立压缩档案。<br>-x ：解压。<br>-t ：查看内容。<br>-r ：向压缩归档文件末尾追加文件。<br>-u ：更新原压缩包中的文件。<br>这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。<br>下面的参数是根据需要在压缩或解压档案时可选的。<br>-z ：有gzip属性的。<br>-j ：有bz2属性的。<br>-Z ：有compress属性的。<br>-v ：显示所有过程。<br>-O ：将文件解开到标准输出。<br>下面的参数-f是必须的<br>-f ：使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。<br>示例：<br>（1）tar -cvf txt.tar <em>.txt : 将当前目录下的所有txt文件压缩成txt.tar包。<br>（2）tar -czvf txt.tar.gz </em>.txt : 将当前目录下的所有txt文件压缩成txt.tar.gz包。<br>（3）tar -xvf txt.tar : 在当前目录下解压txt.tar包。<br>（4）tar -xzvf txt.tar.gz : : 在当前目录下解压txt.tar.gz包</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2018-07-24T07:12:34.065Z" itemprop="dateUpdated">2018-07-24 15:12:34</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/20180724/操作服务器常用命令/" target="_blank" rel="external">https://jiangchengzzz.github.io/20180724/操作服务器常用命令/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://jiangchengzzz.github.io">
+            <img src="/img/touxiang.jpg" alt="蒋承志">
+            蒋承志
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/&title=《linux常用命令》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/&title=《linux常用命令》 — 蒋兄的博客&source=前端" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux常用命令》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20180716/react-create-app-1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">用react-create-app来搭建-1</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>蒋承志 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/&title=《linux常用命令》 — 蒋兄的博客&pic=https://jiangchengzzz.github.io/img/touxiang.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/&title=《linux常用命令》 — 蒋兄的博客&source=前端" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux常用命令》 — 蒋兄的博客&url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/&via=https://jiangchengzzz.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://jiangchengzzz.github.io/20180724/操作服务器常用命令/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'false';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'false';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
